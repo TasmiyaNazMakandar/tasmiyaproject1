@@ -84,11 +84,6 @@ class _State extends State<LoginPage> {
                   )
               );
 
-
-
-
-
-
       }
       });
     }
@@ -117,15 +112,16 @@ class _State extends State<LoginPage> {
                   child: Image.network('https://i.pinimg.com/originals/59/3d/3c/593d3c70fcd3eb601fa6cb39c4f79d50.jpg',width: 80,height: 80),
                 ),
                 Container(
-                    alignment: Alignment.center,
                     padding: EdgeInsets.all(10),
+                    alignment: Alignment.center,
                     child: Text(
                       'Login Page',
                       style: TextStyle(
                           color: Colors.blueAccent,
                           fontWeight: FontWeight.w500,
                           fontSize: 30),
-                    )),
+                    )
+              ),
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
