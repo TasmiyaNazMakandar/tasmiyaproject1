@@ -1,0 +1,183 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+
+      theme: ThemeData(
+
+
+        primarySwatch: Colors.lime,
+
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+
+      ),
+
+
+
+      home: MyHomePage(),
+
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController ncon= TextEditingController();
+  TextEditingController pcon= TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+
+        title:
+        Text('Login page',textAlign:TextAlign.left,style: TextStyle(
+            color: Colors.white
+        ),),
+        centerTitle: true,
+      ),
+        body: Container(
+          child: ListView(
+            children: [
+              Container(
+                child:Stack(children: <Widget>[ //stack overlaps widgets
+                  Opacity( //semi red clippath with more height and with 0.5 opacity
+                    opacity: 0.5,
+                    child: ClipPath(
+                      clipper:WaveClipper(), //set our custom wave clipper
+                      child:Container(
+                        color:Colors.lightGreen,
+                        height:200,
+                      ),
+                    ),
+                  ),
+
+                  ClipPath(  //upper clippath with less height
+                    clipper:WaveClipper(), //set our custom wave clipper.
+                    child:Container(
+                        color: Colors.lightGreenAccent,
+                        padding: EdgeInsets.only(bottom: 50),
+
+                        height:180,
+                        alignment: Alignment.center,
+                        child: Text("Welcome", style: TextStyle(
+                            fontSize:22, color:Colors.black,
+                            fontWeight: FontWeight.bold
+                        ),
+                        )
+                    ),
+                  ),
+                ],
+
+                ),
+
+              ),
+              Container(
+                padding: EdgeInsets.all(80),
+                color: Colors.black12,
+                child: Column(
+
+                  children: [
+                    TextField(
+
+                      controller: ncon,
+                      decoration: InputDecoration(
+                        icon:Icon( Icons.person),
+                        border: OutlineInputBorder(),
+                        labelText: 'User Name',
+                      ),
+                    ),
+
+                    TextField(
+                      obscureText: true,
+                      controller: pcon,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.vpn_key_rounded),
+                        border: OutlineInputBorder(),
+                        labelText: 'Password',
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        ButtonTheme(
+                          minWidth: 300.0,
+                          child: RaisedButton(
+                            onPressed: (){},  shape:RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(200.0),
+                              side: BorderSide(color: Colors.cyan)
+                          ),
+                              child:Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.login),
+                                  Text('Login'),
+                                ],
+                              )
+                          )
+
+
+
+                          )
+
+
+
+                      ],
+
+                    )
+
+                  ],
+                ),
+
+              )
+
+
+
+            ],
+
+          ),
+        ),
+
+    );
+  }
+}
+class WaveClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+
+    var path = new Path();
+    path.lineTo(0, size.height);
+
+    var firstStart = Offset(size.width / 5, size.height);
+
+    var firstEnd = Offset(size.width / 2.25, size.height - 50.0);
+
+    path.quadraticBezierTo(firstStart.dx, firstStart.dy, firstEnd.dx, firstEnd.dy);
+
+    var secondStart = Offset(size.width - (size.width / 3.24), size.height - 105);
+
+    var secondEnd = Offset(size.width, size.height - 10);
+
+    path.quadraticBezierTo(secondStart.dx, secondStart.dy, secondEnd.dx, secondEnd.dy);
+
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
