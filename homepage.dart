@@ -2,9 +2,13 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:heath_care/Login_Screen.dart';
 import 'package:heath_care/bim-cal.dart';
 import 'package:heath_care/booksection.dart';
 import 'package:heath_care/doctor.page.dart';
+
+import 'about.dart';
+import 'sankbar.dart';
 class Myhome extends StatefulWidget {
   @override
   _MyhomeState createState() => _MyhomeState();
@@ -15,19 +19,30 @@ class _MyhomeState extends State<Myhome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Health Care App'),
-        backgroundColor: Colors.grey,),
+          backgroundColor: Colors.blue,),
       drawer: Drawer(
+
         child: ListView(
           children:<Widget> [
+
             DrawerHeader(child:
             Image.network('https://content3.jdmagicbox.com/comp/bangalore/w2/080pxx80.xx80.180528211817.q5w2/catalogue/skycliff-it-pvt-ltd-mahalakshmipuram-layout-bangalore-software-companies-8hb7hnuter.jpg?clr=143952'),
               decoration: BoxDecoration(
-              color: Colors.cyan
+              color: Colors.blueAccent
             ),
             ),
+
             ListTile(
-              title: Text('BIM Calculator'),
-              onTap: (){
+              title: Text('BMI Calculator'),
+
+
+
+
+                 onTap: (){
+
+
+
+
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Demo()));
               },
@@ -42,9 +57,17 @@ class _MyhomeState extends State<Myhome> {
             ),
             ListTile (
               title: Text('About Us'),
+              onTap: (){
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AboutUs()));
+              },
             ),
-
-
+            FlatButton(
+          child: Text('Logout', style: TextStyle(color: Colors.black87, fontSize: 16),),
+          onPressed: () {Navigator.pushReplacement(
+              context, new MaterialPageRoute(builder: (context) => LoginPage()));
+          }
+      )
 
           ],
         ),
@@ -99,13 +122,14 @@ class _MyhomeState extends State<Myhome> {
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white60,
-                                    ),),
+                                    ),
+                                  ),
                                   contentPadding: const EdgeInsets.only(
                                       top: 20, left: 15),
                                 )
                               ],
                             ),
-                            width: 150,
+                            width: 110,
                             height: 150,
                           ),
                           color: Colors.indigo,
@@ -140,7 +164,7 @@ class _MyhomeState extends State<Myhome> {
                                 )
                               ],
                             ),
-                            width: 150,
+                            width: 110,
                             height: 150,
                           ),
                           color: Colors.black54,
@@ -182,7 +206,7 @@ class _MyhomeState extends State<Myhome> {
                                 )
                               ],
                             ),
-                            width: 150,
+                            width: 110,
                             height: 150,
                           ),
                           color: Colors.black54,
@@ -191,7 +215,7 @@ class _MyhomeState extends State<Myhome> {
 
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Doctordetails()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Sank()));
                         },
                         child:Card(
                           child: Container(
@@ -218,7 +242,7 @@ class _MyhomeState extends State<Myhome> {
                                 )
                               ],
                             ),
-                            width: 150,
+                            width: 110,
                             height: 150,
                           ),
                           color: Colors.black54,
@@ -237,4 +261,29 @@ class _MyhomeState extends State<Myhome> {
       ),
     );
 }
+}
+class SnackBarPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          final snackBar = SnackBar(
+            content: Text('Yay! A SnackBar!'),
+            action: SnackBarAction(
+              label: 'Undo',
+              onPressed: () {
+                // Some code to undo the change.
+              },
+            ),
+          );
+
+          // Find the Scaffold in the widget tree and use
+          // it to show a SnackBar.
+          Scaffold.of(context).showSnackBar(snackBar);
+        },
+        child: Text('Show SnackBar'),
+      ),
+    );
+  }
 }
