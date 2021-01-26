@@ -15,21 +15,32 @@ class _DemoState extends State<Demo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: Text('Health Care App'),
         centerTitle: true,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.blue,
       ),
       body:
       Container(
-        color: Colors.yellow,
+        width: MediaQuery.of(context).size.width*0.8,
+        height: MediaQuery.of(context).size.height*0.8,
+
+        color: Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: Column(
           
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8VnZpGL84i2Ehm--JV8Qzek8B7PXQbYj9-Q&usqp=CAU'),
+              height: 20,
+              width: 200,
+              child: Text('BMI Calculater',textAlign: TextAlign.center,),
             ),
+
+
+            Container(
+              child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8VnZpGL84i2Ehm--JV8Qzek8B7PXQbYj9-Q&usqp=CAU',width: 170,height: 100,),
+            ),
+
             TextField(
               controller: _heightController,
               keyboardType: TextInputType.number,
@@ -38,7 +49,7 @@ class _DemoState extends State<Demo> {
                 icon: Icon(Icons.height_rounded),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             TextField(
               controller: _weightController,
               keyboardType: TextInputType.number,
@@ -47,7 +58,7 @@ class _DemoState extends State<Demo> {
                 icon: Icon(Icons.line_weight_rounded),
               ),
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             RaisedButton(
               color: Colors.lightGreen,
               child: Text(
@@ -56,7 +67,7 @@ class _DemoState extends State<Demo> {
               ),
               onPressed: calculateBMI,
             ),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             Text(
               _result == null ? "Enter value" : "${_result.toStringAsFixed(2)}",
               style: TextStyle(
