@@ -15,7 +15,7 @@ class _RegisterState extends State<Register> {
         style: TextStyle(
           color: Colors.white,
         ),),
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.blue,
 
       ),
       body: Padding(
@@ -27,7 +27,7 @@ class _RegisterState extends State<Register> {
               alignment: Alignment.center,
               child: Text('Registration page',
               style: TextStyle(
-                  color: Colors.blueAccent,
+                  color: Colors.lightBlueAccent,
 
                   fontWeight: FontWeight.w500,
                   fontSize: 30
@@ -68,7 +68,7 @@ class _RegisterState extends State<Register> {
             Container(
               child: RaisedButton(
                 textColor: Colors.white,
-                color:Colors.cyan,
+                color:Colors.lightBlue,
                 child: Text('Create Account'),
                 onPressed: (){           return showDialog(
                     context: context,
