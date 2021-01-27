@@ -6,6 +6,7 @@ import 'package:heath_care/amlya.dart';
 import 'package:heath_care/arbaz.dart';
 import 'package:heath_care/shrutii.dart';
 
+
 import 'vikas.dart';
 
 
@@ -139,7 +140,14 @@ class View extends StatelessWidget {
                   height: 90,
                   color: Colors.blue,
                   child: ListTile(
-                    leading: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXts5ABhK9e_f6JHZ1B0-vidUBb75LTOSYw&usqp=CAU'),
+                    leading:  CircleAvatar(
+                      radius: 30,
+                      child: ClipOval(
+                        child: Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXts5ABhK9e_f6JHZ1B0-vidUBb75LTOSYw&usqp=CAU',
+                        ),
+                      ),
+                    ),
                     title: Text('Dr.Vikas'),
                     subtitle: Text('Heart Surgon-Flower Hospitals'),
                   ),
@@ -151,11 +159,20 @@ class View extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>A()));
                 },
                 child: Container(
+
                   width: 330,
                   height: 90,
                   color: Colors.white24,
                   child: ListTile(
-                    leading: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXts5ABhK9e_f6JHZ1B0-vidUBb75LTOSYw&usqp=CAU'),
+                    leading:  CircleAvatar(
+                      radius: 30,
+                      child: ClipOval(
+                        child: Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXts5ABhK9e_f6JHZ1B0-vidUBb75LTOSYw&usqp=CAU',
+                        ),
+                      ),
+                    ),
+
                     title: Text('Dr.Shruti'),
                     subtitle: Text('Dental Surgon-Flower Hospitals'),
                   ),
@@ -170,7 +187,14 @@ class View extends StatelessWidget {
                   height: 90,
                   color: Colors.blue,
                   child: ListTile(
-                    leading: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXts5ABhK9e_f6JHZ1B0-vidUBb75LTOSYw&usqp=CAU'),
+                    leading:  CircleAvatar(
+                      radius: 30,
+                      child: ClipOval(
+                        child: Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXts5ABhK9e_f6JHZ1B0-vidUBb75LTOSYw&usqp=CAU',
+                        ),
+                      ),
+                    ),
                     title: Text('Dr.Amuliya'),
                     subtitle: Text('Heart Surgon-Flower Hospitals'),
                   ),
@@ -184,8 +208,17 @@ class View extends StatelessWidget {
                   width: 330,
                   height: 90,
                   color: Colors.white,
+
                   child: ListTile(
-                    leading: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXts5ABhK9e_f6JHZ1B0-vidUBb75LTOSYw&usqp=CAU'),
+                    leading: CircleAvatar(
+                      radius: 30,
+                      child: ClipOval(
+                        child: Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaXts5ABhK9e_f6JHZ1B0-vidUBb75LTOSYw&usqp=CAU',
+                        ),
+                      ),
+                    ),
+
                     title: Text('Dr.Arbaaz'),
                     subtitle: Text('Dental Surgon-Flower Hospitals'),
                   ),
